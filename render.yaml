@@ -1,0 +1,17 @@
+name=render.yaml url=https://github.com/pasharad/Vision_partnergate_bot/blob/main/render.yaml
+services:
+  - type: background_worker
+    name: vision-bot
+    runtime: python311
+    startCommand: python bot.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: EXCEL_FILE_PATH
+        value: data/boards.xlsx
+      - key: RELOAD_INTERVAL_HOURS
+        value: "4"
+      - key: WHITELIST_PATH
+        value: whitelist.json
+      - key: STATION_CONFIG_PATH
+        value: data/station_config.json
